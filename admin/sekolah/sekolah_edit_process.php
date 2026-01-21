@@ -18,7 +18,7 @@ if (isset($_POST['update'])) {
               WHERE id_sekolah='$old_id'";
 
     if (mysqli_query($conn, $query)) {
-        echo "<script>alert('Data Sekolah Berhasil Diperbarui'); window.location='../../pages/admin/sekolah_manage.php';</script>";
+        echo "<script>alert('Data Sekolah Berhasil Diperbarui'); window.location='../../pages/sekolah/sekolah_manage.php';</script>";
     } else {
         echo "Error: " . mysqli_error($conn);
     }

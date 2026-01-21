@@ -39,8 +39,8 @@ $role = $_SESSION['role'];
             <ul>
                 <li><a href="dashboard.php">Home</a></li>
                 <?php if($_SESSION['role'] == 'Admin'): ?>
-                    <li><a href="../../pages/admin/user_manage.php">Kelola User</a></li>
-                    <li><a href="#">Kelola Sekolah</a></li>
+                    <li><a href="admin/user_manage.php">Kelola User</a></li>
+                    <li><a href="sekolah/sekolah_manage.php">Kelola Sekolah</a></li>
                 <?php endif; ?>
 
                 <?php if($_SESSION['role'] == 'Petugas Gizi'): ?>

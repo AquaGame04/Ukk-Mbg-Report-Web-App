@@ -37,7 +37,7 @@ $result = mysqli_query($conn, $query);
                 <td><?php echo $row['kontak']; ?></td>
                 <td>
                     <a href="sekolah_edit.php?id=<?php echo $row['id_sekolah']; ?>">Edit</a> |
-                    <a href="../../admin/sekolah/sekolah_delete_process.php"?id=<?php echo $row['id_sekolah']; ?> onclick="return confirm ('Hapus Sekolah ini?')">Hapus</a>
+                    <a href="../../admin/sekolah/sekolah_delete_process.php?id=<?php echo $row['id_sekolah']; ?>" onclick="return confirm ('Hapus Sekolah ini?')">Hapus</a>
                 </td>
             </tr>
             <?php endwhile; ?>

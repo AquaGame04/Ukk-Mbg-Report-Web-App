@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
               VALUES ('$id', '$nama', '$alamat', '$kontak', '$koordinat')";
 
     if (mysqli_query($conn, $query)) {
-        echo "<script>alert('Sekolah Berhasil Ditambahkan'); window.location='../../pages/admin/sekolah_manage.php';</script>";
+        echo "<script>alert('Sekolah Berhasil Ditambahkan'); window.location='../../pages/sekolah/sekolah_manage.php';</script>";
     } else {
         echo "Error: " . mysqli_error($conn);
     }
