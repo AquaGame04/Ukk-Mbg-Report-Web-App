@@ -20,10 +20,10 @@ if(isset($_SESSION['login'])) {
     <div class="login-container">
         <h2>Login Sistem</h2>
         <form action="../auth/login_process.php" method="POST">
-            <input type="text" name="uid" placeholder="Masukkan UID" required>
-            <input type="password" name="password" placeholder="Masukkan Password" required>
+            <input type="text" name="uid" placeholder="Masukkan UID" required><br>
+            <input type="password" name="password" placeholder="Masukkan Password" required><br>
             <button type="submit" name="login">Masuk</button>
-        </form>
+        </form><br>
         <p>Belum punya akun? <a href="register_pages.php">Daftar</a></p>
         <p><a href="../index.php">Kembali ke Beranda</a></p>
     </div>

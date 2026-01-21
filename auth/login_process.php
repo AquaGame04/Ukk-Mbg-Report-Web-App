@@ -19,7 +19,7 @@
           $_SESSION['nama'] = $user['nama'];
           $_SESSION['role'] = $user['role']; // Implementasi role/hak akses
 
-          header("Location: ../admin/dashboard.php");
+          header("Location: ../pages/dashboard.php");
           exit;
       }
     }
