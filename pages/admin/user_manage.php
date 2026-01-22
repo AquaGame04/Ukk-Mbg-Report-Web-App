@@ -5,7 +5,8 @@ include '../../config/database.php';
 Login_Check();
 Only_Allow(['Admin']);
 
-$query = "SELECT * FROM users";
+$query = "SELECT users.*, sekolah.nama_sekolah FROM users 
+         LEFT JOIN sekolah ON users.id_sekolah = sekolah.id_sekolah";
 $result = mysqli_query($conn, $query);
 ?>
 
@@ -40,7 +41,7 @@ $result = mysqli_query($conn, $query);
                 <td><?php echo $row['id_sekolah'] ?? '-'; ?></td>
                 <td>
                     <a href="user_edit.php ? uid=<?php echo $row['uid']; ?>" class="btn btn-edit">Edit</a>
-                    <a href="../../admin/users/user_delete_process.php ? uid=<?php echo $row['uid']; ?>" class="btn btn-delete" onclick="return confirm("Yakin hapus user ini?">Hapus</a>
+                    <a href="../../process/users/user_delete_process.php ? uid=<?php echo $row['uid']; ?>" class="btn btn-delete" onclick="return confirm("Yakin hapus user ini?">Hapus</a>
                 </td>
             </tr>
             <?php endwhile;?>

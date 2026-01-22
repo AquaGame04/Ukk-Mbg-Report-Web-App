@@ -17,7 +17,7 @@ $s = mysqli_fetch_assoc($result);
 </head>
 <body>
     <h2>Edit Data Sekolah</h2>
-    <form action="../../admin/sekolah/sekolah_edit_process.php" method="POST">
+    <form action="../../process/sekolah/sekolah_edit_process.php" method="POST">
         <input type="hidden" name="old_id" value="<?php echo $s['id_sekolah']; ?>">
         
         <label>ID Sekolah:</label><br>

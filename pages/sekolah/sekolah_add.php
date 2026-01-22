@@ -11,7 +11,7 @@ Only_Allow(['Admin']);
 </head>
 <body>
     <h2>Tambah Sekolah Baru</h2>
-    <form action="../../admin/sekolah/sekolah_add_process.php" method="POST">
+    <form action="../../process/sekolah/sekolah_add_process.php" method="POST">
         <label>ID Sekolah:</label><br>
         <input type="text" name="id_sekolah" placeholder="Contoh: SCH01" required><br><br>
         

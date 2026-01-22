@@ -15,7 +15,7 @@ function Only_Allow($roles_izinkan) {
     if(!in_array($_SESSION['role'], $roles_izinkan)){
         echo "<script>
              alert('Akses Ditolak! Anda tidak memiliki izin ke halaman ini');
-             window.location='../admin/dashboard.php'
+             window.location='../process/dashboard.php'
              </script>";
         exit;
     }
