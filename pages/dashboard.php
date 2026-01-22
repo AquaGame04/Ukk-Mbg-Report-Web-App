@@ -23,14 +23,14 @@ $role = $_SESSION['role'];
 </head>
 <body>
     <!-- Main Dashboard
-    <h1>Selamat Datang, <?php echo $_SESSION['nama']; ?>(<?php echo $_SESSION['role']; ?>)!</h1>
-    <p>Role anda saat ini: <strong><?php echo $_SESSION['role'];?></strong></p>
+    <h1>Selamat Datang, <?php // $_SESSION['nama']; ?>(<?php echo $_SESSION['role']; ?>)!</h1>
+    <p>Role anda saat ini: <strong><?php //echo $_SESSION['role'];?></strong></p>
     <hr> -->
 
     <div class="container">
     <aside class="sidebar">
         <div class="profile">
-            <h3>MBG Report</h3>
+            <h2>MBG Report</h2>
             <p>User: <strong><?php echo $nama;?></strong></p>
             <span class="badge"><?php echo $role?></span>
         </div>
@@ -42,10 +42,11 @@ $role = $_SESSION['role'];
                     <li><a href="admin/user_manage.php">Kelola User</a></li>
                     <li><a href="sekolah/sekolah_manage.php">Kelola Sekolah</a></li>
                     <li><a href="sppg/sppg_manages.php">Kelola Tim SPPG</a></li>
+                    <li><a href="petugas/menu/menu_manage.php">Input Menu & Gizi</a></li>
                 <?php endif; ?>
 
                 <?php if($_SESSION['role'] == 'Petugas Gizi'): ?>
-                    <li><a href="#">Input Menu & Gizi</a></li>
+                    <li><a href="petugas/menu/menu_manage.php">Input Menu & Gizi</a></li>
                 <?php endif; ?>
 
                 <?php if($_SESSION['role'] == 'Petugas Pengaduan'): ?>

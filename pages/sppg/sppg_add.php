@@ -18,11 +18,13 @@ $daftar_sekolah = mysqli_query($conn, "SELECT id_sekolah, nama_sekolah FROM seko
 </head>
 <body>
     <h2>Daftarkan Tim SPPG Baru</h2>
-    <form action="../../process/sppg/sppg_add_process.php" method="POST">
+    <form action="../../process/sppg/sppg_add_process.php" method="POST" enctype="multipart/form-data">
         <label for="">ID SPPG</label><br>
         <input type="text" name="id_sppg" placeholder="Contoh: SPPG-001" required><br>
         <label for="">Nama Tim</label><br>
         <input type="text" name="nama_tim" required><br>
+        <label for="">Jabatan</label><br>
+        <input type="text" name="jabatan" placeholder="Contoh: Unit Gizi Sekolah" required><br>
         <label for="">Penempatan Sekolah</label><br>
         <select name="id_sekolah" id="" required>
             <option value="">-- Pilih Sekolah--</option>
@@ -41,6 +43,8 @@ $daftar_sekolah = mysqli_query($conn, "SELECT id_sekolah, nama_sekolah FROM seko
         <small>*Tahan Ctrl untuk memilih lebih dari satu</small><br>
         <label for="">Kontak Tim</label><br>
         <input type="text" name="kontak_tim"><br>
+        <label for="">Foto Tim</label><br>
+        <input type="file" name="foto_tim" accept="image/*"><br>
         <button type="submit" name="submit">Simpan Tim</button>
     </form>
     <p><a href="sppg_manages.php">Batal</a></p>

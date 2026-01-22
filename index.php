@@ -4,6 +4,7 @@
         <li><a href="#menu">Menu Hari Ini</a></li>
         <li><a href="#pengaduan">Pengaduan</a></li>
         <li><a href="pages/login_pages.php" class="btn-login">Portal Petugas</a></li>
+        <li><a href="pages/logout.php">Logout</a></li>
     </ul>
 </nav>
 

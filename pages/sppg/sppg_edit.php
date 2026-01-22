@@ -25,12 +25,14 @@ $anggota_sekarang = explode(',', $sppg['anggota_tim']);
 </head>
 <body>
     <h2>Edit Tim SPPG</h2><br>
-    <form action="../../process/sppg/sppg_edit_process.php" method="POST">
+    <form action="../../process/sppg/sppg_edit_process.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="old_id" value="<?php echo $sppg['id_sppg']; ?>"><br>
         <label for="">ID SPPG:</label><br>
         <input type="text" name="id_sppg" value="<?php echo $sppg['id_sppg']; ?>"><br>
         <label for="">Nama Tim:</label><br>
         <input type="text" name="nama_tim" value="<?php echo $sppg['nama_tim']; ?>"><br>
+        <label for="">Jabatan:</label><br>
+        <input type="text" name="jabatan" value="<?php echo $sppg['jabatan']; ?>"><br>
         <label for="">Penempatan Sekolah:</label><br>
         <select name="id_sekolah" required>
             <?php while($s = mysqli_fetch_assoc($daftar_sekolah)) : ?>
@@ -52,6 +54,10 @@ $anggota_sekarang = explode(',', $sppg['anggota_tim']);
         <small>*Tahan Ctrl untuk memilih beberapa anggota</small><br>
         <label for="">Kontak Tim:</label><br>
         <input type="text" name="kontak_tim" value="<?php echo $sppg['kontak_tim']; ?>"><br>
+        <label>Foto Tim:</label><br>
+        <img src="../../../assets/uploads/<?php echo $sppg['foto_tim']; ?>" width="150" style="display:block; margin: 10px 0;">
+        <input type="hidden" name="foto_lama" value="<?php echo $sppg['foto_tim']; ?>">
+        <input type="file" name="foto_tim" accept="image/*"><br>
         <button type="submit" name="update">Update</button>
     </form>
     <a href="sppg_manages.php">Batal</a>

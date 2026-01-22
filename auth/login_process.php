@@ -1,8 +1,9 @@
 <?php
-  session_start();
-  include '../config/database.php';
+session_start();
+ob_start(); // Tambahkan output buffering
+include '../config/database.php';
 
-  if(isset($_POST['login'])){
+if(isset($_POST['login'])){
     $uid = mysqli_real_escape_string($conn, $_POST['uid']);
     $password = $_POST['password'];
 
@@ -10,19 +11,21 @@
     $result = mysqli_query($conn, $query);
 
     if(mysqli_num_rows($result) === 1){
-      $user = mysqli_fetch_assoc($result);
+        $user = mysqli_fetch_assoc($result);
 
-    //   verifikasi password yang sudah di enkripsi hash
-      if($password == $user['password']){
-          $_SESSION['login'] = true;
-          $_SESSION['uid'] = $user['uid'];
-          $_SESSION['nama'] = $user['nama'];
-          $_SESSION['role'] = $user['role']; // Implementasi role/hak akses
-
-          header("Location: ../pages/dashboard.php");
-          exit;
-      }
+        if($password == $user['password']){
+            $_SESSION['login'] = true;
+            $_SESSION['uid'] = $user['uid'];
+            $_SESSION['nama'] = $user['nama'];
+            $_SESSION['role'] = $user['role'];
+            
+            // Pastikan path ini benar sesuai struktur folder Anda
+            header("Location: ../pages/dashboard.php");
+            exit;
+        }
     }
     echo "<script>alert('UID atau Password Salah!'); window.location='../pages/login_pages.php';</script>";
-  }
+    exit;
+}
+ob_end_flush();
 ?>

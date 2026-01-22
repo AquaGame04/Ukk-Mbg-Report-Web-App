@@ -3,7 +3,7 @@ session_start();
 
 // fungsi untuk mengecek apakah sudah login
 function Login_Check() {
-    if(!isset($_SESSION['login'])){
+    if(!isset($_SESSION['login']) || $_SESSION['login'] !== true){
         header("Location: ../pages/login_pages.php");
         exit;
     }

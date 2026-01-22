@@ -23,6 +23,7 @@ $result = mysqli_query($conn, $query);
             <tr>
                 <th>ID SPPG</th>
                 <th>Nama Tim</th>
+                <th>Foto Tim</th>
                 <th>Sekolah Tugas</th>
                 <th>Ketua Tim</th>
                 <th>Anggota Tim</th>
@@ -34,7 +35,18 @@ $result = mysqli_query($conn, $query);
             <?php while($row = mysqli_fetch_assoc($result)): ?>
                 <tr>
                     <td><?php echo $row['id_sppg']; ?></td>
-                    <td><?php echo $row['nama_tim']; ?></td>
+                    <td>
+                        <strong><?php echo $row['nama_tim']; ?></strong><br>
+                        <small>Jabatan: <?php echo $row['jabatan']; ?></small><br>
+                        <small>Ketua: <?php echo $row['ketua_tim']; ?></small>
+                    </td>
+                    <td align="center">
+                        <?php if(!empty($row['foto_tim'])): ?>
+                            <img src="../../assets/uploads/<?php echo $row['foto_tim']; ?>" width="80" style="border-radius: 5px;">
+                        <?php else: ?>
+                            <small>No Image Found</small>
+                        <?php endif; ?>
+                    </td>
                     <td><?php echo $row['nama_sekolah'] ?? 'Belum Ditentukan'; ?></td>
                     <td><?php echo $row['ketua_tim']; ?></td>
                     <td>
