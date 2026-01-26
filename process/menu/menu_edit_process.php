@@ -18,11 +18,11 @@ if (isset($_POST['update'])) {
     // Cek apakah ada foto baru
     if ($_FILES['foto_menu']['name'] != "") {
         $filename = time() . "_" . $_FILES['foto_menu']['name'];
-        move_uploaded_file($_FILES['foto_menu']['tmp_name'], "../../assets/uploads/menu" . $filename);
+        move_uploaded_file($_FILES['foto_menu']['tmp_name'], "../../assets/uploads/menu/" . $filename);
         
         // Hapus foto lama dari folder
-        if (file_exists("../../assets/uploads/menu" . $foto_lama)) {
-            unlink("../../assets/uploads/menu" . $foto_lama);
+        if (file_exists("../../assets/uploads/menu/" . $foto_lama)) {
+            unlink("../../assets/uploads/menu/" . $foto_lama);
         }
         $foto_final = $filename;
     } else {

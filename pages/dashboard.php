@@ -43,6 +43,7 @@ $role = $_SESSION['role'];
                     <li><a href="sekolah/sekolah_manage.php">Kelola Sekolah</a></li>
                     <li><a href="sppg/sppg_manages.php">Kelola Tim SPPG</a></li>
                     <li><a href="petugas/menu/menu_manage.php">Input Menu & Gizi</a></li>
+                    <li><a href="petugas/pengaduan/pengaduan_manage.php">Pengaduan List</a></li>
                 <?php endif; ?>
 
                 <?php if($_SESSION['role'] == 'Petugas Gizi'): ?>
@@ -50,7 +51,7 @@ $role = $_SESSION['role'];
                 <?php endif; ?>
 
                 <?php if($_SESSION['role'] == 'Petugas Pengaduan'): ?>
-                    <li><a href="#">Kelola Pengaduan</a></li>
+                    <li><a href="petugas/pengaduan/pengaduan_manage.php">Kelola Pengaduan</a></li>
                 <?php endif; ?>
                 <li><a href="../auth/logout_process.php" onclick="return confirm('Apakah Anda Yakin Ingin Keluar?')">Logout dari Sistem</a></li>
             </ul>

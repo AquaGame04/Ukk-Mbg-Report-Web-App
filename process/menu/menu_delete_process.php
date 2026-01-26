@@ -16,8 +16,8 @@ if (isset($_GET['id'])) {
 
     if (mysqli_query($conn, $query)) {
         // 3. Hapus file foto dari folder uploads
-        if (file_exists("../../assets/uploads/menu" . $foto)) {
-            unlink("../../assets/uploads/menu" . $foto);
+        if (file_exists("../../assets/uploads/menu/" . $foto)) {
+            unlink("../../assets/uploads/menu/" . $foto);
         }
         echo "<script>alert('Menu Berhasil Dihapus'); window.location='../../pages/petugas/menu/menu_manage.php';</script>";
     }

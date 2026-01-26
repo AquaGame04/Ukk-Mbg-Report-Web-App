@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     
     // Berikan nama unik ke file agar tidak bentrok
     $new_filename = time() . "_" . $filename;
-    $upload_path = "../../assets/uploads/menu" . $new_filename;
+    $upload_path = "../../assets/uploads/menu/" . $new_filename;
 
     if (move_uploaded_file($tmp_name, $upload_path)) {
         // 1. Insert ke menu_harian

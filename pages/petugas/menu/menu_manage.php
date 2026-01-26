@@ -4,12 +4,15 @@ include '../../../config/database.php';
 Login_Check();
 Only_Allow(['Petugas Gizi','Admin']);
 
-$id_sekolah = $_SESSION['id_sekolah']; // Mengambil sekolah petugas dari session
+//$id_sekolah = $_SESSION['id_sekolah']; // Mengambil sekolah petugas dari session
+
+$status_filter = isset($_GET['status']) ? $_GET['status'] : '0'; //'0' berarti aktif
 
 $query = "SELECT m.*, g.*, s.nama_sekolah 
           FROM menu_harian m
           JOIN gizi_menu g ON m.id_menu = g.id_menu
           JOIN sekolah s ON m.id_sekolah = s.id_sekolah
+          WHERE m.riwayat = '$status_filter'
           ORDER BY m.tanggal DESC";
 $result = mysqli_query($conn, $query);
 ?>
@@ -22,6 +25,13 @@ $result = mysqli_query($conn, $query);
 <body>
     <h2>Daftar Menu Harian Sekolah</h2>
     <a href="../../dashboard.php">Kembali</a> | <a href="menu_add.php">Tambah Menu Hari Ini</a>
+    <div>
+        <a href="?status=0" style="<?php echo $status_filter == '0' ? 'font-weight:bold; color:green;' : ''; ?>">[ Menu Aktif ]</a>
+        <a href="?status=1" style="<?php echo $status_filter == '1' ? 'font-weight:bold; color:blue;' : ''; ?>">[ Lihat Riwayat ]</a>
+    </div>
+    <table>
+
+    </table>
 
     <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; margin-top: 20px;">
         <thead>
@@ -43,8 +53,8 @@ $result = mysqli_query($conn, $query);
                 <td><?php echo date('d-m-Y', strtotime($row['tanggal'])); ?></td>
 
                 <td align="center">
-                    <?php if (!empty($row['foto_url']) && file_exists("../../../assets/uploads/" . $row['foto_url'])): ?>
-                        <img src="../../../assets/uploads/<?php echo $row['foto_url']; ?>" 
+                    <?php if (!empty($row['foto_url']) && file_exists("../../../assets/uploads/menu/" . $row['foto_url'])): ?>
+                        <img src="../../../assets/uploads/menu/<?php echo $row['foto_url']; ?>" 
                             alt="Foto Menu" 
                             style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;">
                     <?php else: ?>
@@ -74,12 +84,21 @@ $result = mysqli_query($conn, $query);
                     ?>
                 </td>
                 <td>
+                    <?php if($row['riwayat'] == 0): ?>
+                        <a href="../../../process/menu/menu_status_process.php?id=<?php echo $row['id_menu']; ?>&set=1"
+                        onclick="return confirm('Pindahkan menu ini ke riwayat?')">Arsipkan</a> |
+                    <?php else : ?>
+                        <a href="../../../process/menu/menu_status_process.php?id=<?php echo $row['id_menu']; ?>&set=0"
+                        style="color: orange;">Pulihkan</a> |
+                    <?php endif; ?>
+
                     <a href="menu_edit.php?id=<?php echo $row['id_menu']; ?>">Edit</a> | 
                     <a href="../../../process/menu/menu_delete_process.php?id=<?php echo $row['id_menu']; ?>" 
-                       onclick="return confirm('Hapus menu ini?')">Hapus</a>
+                        onclick="return confirm('Hapus menu ini?')">Hapus</a>
                 </td>
             </tr>
             <?php endwhile; ?>
+
             <?php if(mysqli_num_rows($result) == 0) : ?>
             <tr>
                 <td colspan="7" align="center">Belum ada data menu harian.</td>
