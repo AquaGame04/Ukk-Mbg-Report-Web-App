@@ -1,65 +1,88 @@
 <?php
 include '../../includes/auth_check.php';
 include '../../config/database.php';
+
 Login_Check();
 Only_Allow(['Admin']);
 
-$id = mysqli_real_escape_string($conn, $_GET['id']);
-$query_sppg = mysqli_query($conn, "SELECT * FROM sppg WHERE id_sppg = '$id'");
-$sppg = mysqli_fetch_assoc($query_sppg);
+// Get SPPG data
+$id_sppg = $_GET['id'];
+$query_sppg = "SELECT * FROM sppg WHERE id_sppg = '$id_sppg'";
+$result_sppg = mysqli_query($conn, $query_sppg);
+$sppg = mysqli_fetch_assoc($result_sppg);
 
-// Ambil daftar sekolah untuk dropdown
-$daftar_sekolah = mysqli_query($conn, "SELECT id_sekolah, nama_sekolah FROM sekolah");
+// Check if SPPG exists
+if (!$sppg) {
+    header("Location: sppg_manage.php");
+    exit;
+}
 
-// Ambil daftar user untuk anggota (Petugas)
-$daftar_user = mysqli_query($conn, "SELECT uid, nama FROM users WHERE role != 'Admin'");
-
-// Ubah string anggota_tim dari database menjadi array agar bisa dicek (in_array)
-$anggota_sekarang = explode(',', $sppg['anggota_tim']);
+// Get schools list
+$query_sekolah = "SELECT id_sekolah, nama_sekolah FROM sekolah ORDER BY nama_sekolah ASC";
+$daftar_sekolah = mysqli_query($conn, $query_sekolah);
 ?>
 
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <title>Edit TIm SPPG - MBG Report</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Tim SPPG - MBG Report</title>
+    <link rel="stylesheet" href="../../assets/css/form_style.css">
 </head>
 <body>
-    <h2>Edit Tim SPPG</h2><br>
-    <form action="../../process/sppg/sppg_edit_process.php" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="old_id" value="<?php echo $sppg['id_sppg']; ?>"><br>
-        <label for="">ID SPPG:</label><br>
-        <input type="text" name="id_sppg" value="<?php echo $sppg['id_sppg']; ?>"><br>
-        <label for="">Nama Tim:</label><br>
-        <input type="text" name="nama_tim" value="<?php echo $sppg['nama_tim']; ?>"><br>
-        <label for="">Jabatan:</label><br>
-        <input type="text" name="jabatan" value="<?php echo $sppg['jabatan']; ?>"><br>
-        <label for="">Penempatan Sekolah:</label><br>
-        <select name="id_sekolah" required>
-            <?php while($s = mysqli_fetch_assoc($daftar_sekolah)) : ?>
-                <option value="<?php echo $s['id_sekolah'] ?>" <?php if($sppg['id_sekolah'] == $s['id_sekolah']) echo 'selected'; ?>>
-                    <?php echo $s['nama_sekolah']; ?>
-                </option>
-            <?php endwhile; ?>
-        </select><br>
-        <label for="">Ketua Tim:</label><br>
-        <input type="text" name="ketua_tim" value="<?php echo $sppg['ketua_tim']; ?>"><br>
-        <label for="">Anggota Tim:</label><br>
-        <select name="anggota_tim[]" multiple>
-            <?php while ($u = mysqli_fetch_assoc($daftar_user)) : ?>
-                <option value="<?php echo $u['uid']; ?>" <?php if(in_array($u['uid'], $anggota_sekarang )) echo 'selected'; ?>>
-                    <?php echo $u['nama']; ?>
-                </option>
-            <?php endwhile; ?>
-        </select><br>
-        <small>*Tahan Ctrl untuk memilih beberapa anggota</small><br>
-        <label for="">Kontak Tim:</label><br>
-        <input type="text" name="kontak_tim" value="<?php echo $sppg['kontak_tim']; ?>"><br>
-        <label>Foto Tim:</label><br>
-        <img src="../../../assets/uploads/<?php echo $sppg['foto_tim']; ?>" width="150" style="display:block; margin: 10px 0;">
-        <input type="hidden" name="foto_lama" value="<?php echo $sppg['foto_tim']; ?>">
-        <input type="file" name="foto_tim" accept="image/*"><br>
-        <button type="submit" name="update">Update</button>
-    </form>
-    <a href="sppg_manages.php">Batal</a>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Edit Data Tim SPPG</h1>
+            <p>Perbarui informasi anggota tim SPPG</p>
+        </div>
+
+        <form action="../../process/sppg/sppg_edit_process.php" method="POST" enctype="multipart/form-data" class="form-content">
+            <input type="hidden" name="id_sppg" value="<?php echo $sppg['id_sppg']; ?>">
+
+            <div class="form-group">
+                <label for="id_sekolah">Sekolah</label>
+                <select id="id_sekolah" name="id_sekolah" required>
+                    <option value="">-- Pilih Sekolah --</option>
+                    <?php mysqli_data_seek($daftar_sekolah, 0); while($s = mysqli_fetch_assoc($daftar_sekolah)) : ?>
+                        <option value="<?php echo $s['id_sekolah']; ?>" <?php if($sppg['id_sekolah'] == $s['id_sekolah']) echo 'selected'; ?>>
+                            <?php echo $s['nama_sekolah']; ?>
+                        </option>
+                    <?php endwhile; ?>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="nama_tim">Nama Tim</label>
+                <input type="text" id="nama_tim" name="nama_tim" value="<?php echo $sppg['nama_tim']; ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="jabatan">Jabatan / Posisi</label>
+                <input type="text" id="jabatan" name="jabatan" value="<?php echo $sppg['jabatan']; ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="kontak">Nomor Kontak</label>
+                <input type="text" id="kontak" name="kontak" value="<?php echo $sppg['kontak_tim'] ?? ''; ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="foto_tim">Foto Tim (Biarkan kosong jika tidak diubah)</label>
+                <input type="file" id="foto_tim" name="foto_tim" accept="image/*">
+                <small>Format: JPG, PNG, GIF (Max 5MB)</small>
+                <?php if(!empty($sppg['foto_tim'])): ?>
+                    <div style="margin-top: 10px;">
+                        <img src="../../assets/uploads/sppg/<?php echo $sppg['foto_tim']; ?>" alt="Foto Tim" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">
+                    </div>
+                <?php endif; ?>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" name="update" class="btn-primary">Update Tim SPPG</button>
+                <a href="sppg_manage.php" class="btn-secondary">Batal</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

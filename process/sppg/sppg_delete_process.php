@@ -1,21 +1,28 @@
 <?php
 include '../../config/database.php';
-include '../../includes/auth_check.php';
-Login_Check();
-Only_Allow(['Admin']);
 
 if (isset($_GET['id'])) {
-    $id = mysqli_real_escape_string($conn, $_GET['id']);
-    $query = "DELETE FROM sppg WHERE id_sppg = '$id'";
-    $foto = $query['foto_tim'];
-
-    if (mysqli_query($conn, $query)) {
-        if(file_exists("../../assets/uploads/sppg" . $foto)){
-            unlink("../../assets/uploads/sppg" . $foto);
+    $id_sppg = mysqli_real_escape_string($conn, $_GET['id']);
+    
+    // Get photo to delete
+    $query_select = "SELECT foto_tim FROM sppg WHERE id_sppg = '$id_sppg'";
+    $result_select = mysqli_query($conn, $query_select);
+    $data = mysqli_fetch_assoc($result_select);
+    
+    // Delete from database
+    $query_delete = "DELETE FROM sppg WHERE id_sppg = '$id_sppg'";
+    
+    if (mysqli_query($conn, $query_delete)) {
+        // Delete photo file if exists
+        if (!empty($data['foto_tim']) && file_exists("../../assets/uploads/sppg/" . $data['foto_tim'])) {
+            unlink("../../assets/uploads/sppg/" . $data['foto_tim']);
         }
-        echo "<script>alert('Tim SPPG Berhasil Dihapus'); window.location='../../pages/sppg/sppg_manages.php';</script>";
+        
+        echo "<script>alert('Tim SPPG Berhasil Dihapus'); window.location='../../pages/sppg/sppg_manage.php';</script>";
     } else {
-        echo "Error: " . mysqli_error($conn);
+        echo "<script>alert('Gagal menghapus tim SPPG: " . mysqli_error($conn) . "'); window.location='../../pages/sppg/sppg_manage.php';</script>";
     }
+} else {
+    echo "<script>window.location='../../pages/sppg/sppg_manage.php';</script>";
 }
 ?>

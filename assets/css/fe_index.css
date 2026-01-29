@@ -1,0 +1,185 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+:root {
+    --primary-health: #27ae60;
+    --secondary-breakfast: #f39c12;
+    --accent-report: #e74c3c;
+    --bg-clean: #f8fafc;
+    --text-main: #1e293b;
+    --white: #ffffff;
+    --gray-light: #e2e8f0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-clean);
+    color: var(--text-main);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: var(--primary-health);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.nav-logo { color: white; font-weight: 800; font-size: 1.2rem; text-decoration: none; }
+.navbar ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+.navbar a { color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+.navbar a:hover { color: #d1ffd6; }
+.btn-login { border: 1px solid white; padding: 6px 15px; border-radius: 20px; }
+
+/* HERO */
+.hero {
+    background: linear-gradient(135deg, rgba(39, 174, 96, 0.85), rgba(33, 145, 80, 0.85)), url('../uploads/HoV_Snap_03.png') center/cover no-repeat;
+    color: white;
+    padding: 5rem 1rem;
+    text-align: center;
+    border-bottom: 5px solid var(--secondary-breakfast);
+}
+.hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+/* MAIN CONTAINER */
+.container { max-width: 1100px; margin: 0 auto; padding: 2rem 20px; }
+.section-wrapper { margin-bottom: 5rem; padding-top: 2rem; /* Jarak untuk scroll anchor */ }
+.section-title { text-align: center; margin-bottom: 3rem; }
+.section-title h2 { font-size: 2rem; color: var(--primary-health); margin-bottom: 5px; }
+
+/* MENU GRID */
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.menu-card {
+    background: white; border-radius: 15px; overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid var(--gray-light);
+}
+.img-wrapper { position: relative; height: 200px; }
+.img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+.badge-sekolah {
+    position: absolute; bottom: 10px; left: 10px;
+    background: var(--secondary-breakfast); color: white;
+    padding: 4px 10px; border-radius: 5px; font-size: 0.75rem; font-weight: bold;
+}
+.menu-info { padding: 1.5rem; }
+.mini-gizi { display: flex; gap: 15px; font-size: 0.85rem; color: #64748b; margin: 10px 0 20px; }
+.btn-detail {
+    display: block; background: var(--primary-health); color: white;
+    text-align: center; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold;
+}
+.empty-state { grid-column: 1/-1; text-align: center; padding: 40px; background: white; border-radius: 15px; }
+
+/* SPPG TIM GRID (NEW) */
+.sppg-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px;
+}
+.team-card {
+    background: white; padding: 25px; border-radius: 15px;
+    text-align: center; border: 1px solid var(--gray-light);
+    transition: transform 0.3s;
+}
+.team-card:hover { transform: translateY(-5px); border-color: var(--primary-health); }
+.team-photo {
+    width: 100px; height: 100px; margin: 0 auto 15px;
+    border-radius: 50%; overflow: hidden; border: 3px solid var(--secondary-breakfast);
+}
+.team-photo img { width: 100%; height: 100%; object-fit: cover; }
+.team-photo .no-photo {
+    width: 100%; height: 100%; background: #eee;
+    display: flex; align-items: center; justify-content: center; color: #999;
+}
+.team-card h3 { font-size: 1.1rem; margin: 5px 0; }
+.team-card .jabatan { color: var(--primary-health); font-weight: 600; font-size: 0.9rem; }
+.team-card .lokasi { font-size: 0.8rem; color: #64748b; margin-top: 10px; }
+
+/* PENGADUAN FORM (NEW) */
+.report-cta {
+    background: linear-gradient(to right, #ffffff, #fff5f5);
+    border: 2px dashed var(--accent-report);
+    border-radius: 20px; padding: 3rem 1rem;
+}
+.form-container { max-width: 600px; margin: 0 auto; text-align: center; }
+.contact-form { margin-top: 30px; text-align: left; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; }
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 12px; border: 1px solid #ccc;
+    border-radius: 8px; font-family: inherit; box-sizing: border-box;
+    background-color: #f9f9f9; /* Custom background */
+    transition: border-color 0.3s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--primary-health); /* Highlight on focus */
+}
+.btn-submit {
+    width: 100%; background: var(--accent-report); color: white;
+    padding: 12px; border: none; border-radius: 8px;
+    font-weight: bold; cursor: pointer; font-size: 1rem; margin-top: 10px;
+}
+.btn-submit:hover { background: #c0392b; }
+
+/* ALERT MESSAGES */
+.alert {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-success {
+    background: #d4edda;
+    border: 2px solid #28a745;
+    color: #155724;
+}
+
+.alert-error {
+    background: #f8d7da;
+    border: 2px solid #e74c3c;
+    color: #721c24;
+}
+
+.alert-icon {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.alert-message {
+    flex: 1;
+}
+
+.ticket-info {
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* FOOTER */
+footer { background: var(--text-main); color: #cbd5e1; padding: 4rem 2rem 1rem; margin-top: 5rem; }
+.footer-grid { max-width: 1100px; margin: 0 auto; display: grid; gap: 40px; grid-template-columns: 2fr 1fr; }
+.agency-logos p { margin: 5px 0; font-size: 0.9rem; }
+.footer-bottom { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #334155; }

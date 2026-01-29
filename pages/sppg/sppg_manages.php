@@ -42,7 +42,7 @@ $result = mysqli_query($conn, $query);
                     </td>
                     <td align="center">
                         <?php if(!empty($row['foto_tim'])): ?>
-                            <img src="../../assets/uploads/<?php echo $row['foto_tim']; ?>" width="80" style="border-radius: 5px;">
+                            <img src="../../assets/uploads/sppg/<?php echo $row['foto_tim']; ?>" width="80" style="border-radius: 5px;">
                         <?php else: ?>
                             <small>No Image Found</small>
                         <?php endif; ?>

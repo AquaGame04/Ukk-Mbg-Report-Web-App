@@ -10,22 +10,38 @@ if(isset($_SESSION['login'])) {
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <!-- <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title> -->
     <title>Login - MBG Report</title>
     <link rel="stylesheet" href="../assets/css/login_style.css">
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login Sistem</h2>
-        <form action="../auth/login_process.php" method="POST">
-            <input type="text" name="uid" placeholder="Masukkan UID" required><br>
-            <input type="password" name="password" placeholder="Masukkan Password" required><br>
-            <button type="submit" name="login">Masuk</button>
-        </form><br>
-        <p>Belum punya akun? <a href="register_pages.php">Daftar</a></p>
-        <p><a href="../index.php">Kembali ke Beranda</a></p>
+    <div class="login-wrapper">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>MBG REPORT</h1>
+                <p>Sistem Transparansi Makan Bergizi Gratis</p>
+            </div>
+            
+            <form action="../auth/login_process.php" method="POST" class="login-form">
+                <div class="form-group">
+                    <label for="uid">UID / Username</label>
+                    <input type="text" id="uid" name="uid" placeholder="Masukkan UID Anda" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Masukkan Password" required>
+                </div>
+                
+                <button type="submit" name="login" class="btn-login-submit">Masuk</button>
+            </form>
+            
+            <div class="login-footer">
+                <p>Belum punya akun? <a href="register_pages.php">Daftar di sini</a></p>
+                <p><a href="../index.php">← Kembali ke Beranda</a></p>
+            </div>
+        </div>
     </div>
 </body>
 </html>

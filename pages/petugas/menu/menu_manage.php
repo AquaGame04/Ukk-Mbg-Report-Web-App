@@ -2,109 +2,119 @@
 include '../../../includes/auth_check.php';
 include '../../../config/database.php';
 Login_Check();
-Only_Allow(['Petugas Gizi','Admin']);
+Only_Allow(['Petugas Gizi', 'Admin']);
 
-//$id_sekolah = $_SESSION['id_sekolah']; // Mengambil sekolah petugas dari session
-
-$status_filter = isset($_GET['status']) ? $_GET['status'] : '0'; //'0' berarti aktif
-
-$query = "SELECT m.*, g.*, s.nama_sekolah 
-          FROM menu_harian m
-          JOIN gizi_menu g ON m.id_menu = g.id_menu
-          JOIN sekolah s ON m.id_sekolah = s.id_sekolah
-          WHERE m.riwayat = '$status_filter'
+$query = "SELECT m.*, s.nama_sekolah FROM menu_harian m 
+          JOIN sekolah s ON m.id_sekolah = s.id_sekolah 
+          WHERE m.riwayat = 0
           ORDER BY m.tanggal DESC";
 $result = mysqli_query($conn, $query);
+
+$nama = $_SESSION['nama'];
+$role = $_SESSION['role'];
 ?>
 
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <title>Kelola Menu Gizi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Menu - MBG Report</title>
+    <link rel="stylesheet" href="../../../assets/css/dashboard_style.css">
+    <link rel="stylesheet" href="../../../assets/css/table_style.css">
 </head>
 <body>
-    <h2>Daftar Menu Harian Sekolah</h2>
-    <a href="../../dashboard.php">Kembali</a> | <a href="menu_add.php">Tambah Menu Hari Ini</a>
-    <div>
-        <a href="?status=0" style="<?php echo $status_filter == '0' ? 'font-weight:bold; color:green;' : ''; ?>">[ Menu Aktif ]</a>
-        <a href="?status=1" style="<?php echo $status_filter == '1' ? 'font-weight:bold; color:blue;' : ''; ?>">[ Lihat Riwayat ]</a>
-    </div>
-    <table>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 class="logo">MBG REPORT</h2>
+            </div>
+            
+            <div class="profile-section">
+                <div class="profile-avatar"><?php echo strtoupper(substr($nama, 0, 1)); ?></div>
+                <div class="profile-info">
+                    <p class="profile-name"><?php echo $nama; ?></p>
+                    <span class="role-badge"><?php echo $role; ?></span>
+                </div>
+            </div>
+            
+            <nav class="menu">
+                <ul>
+                    <li><a href="../../dashboard.php" class="menu-item">Home</a></li>
+                    
+                    <?php if($_SESSION['role'] == 'Admin'): ?>
+                        <li><a href="../../admin/user_manage.php" class="menu-item">Kelola User</a></li>
+                        <li><a href="../../sekolah/sekolah_manage.php" class="menu-item">Kelola Sekolah</a></li>
+                        <li><a href="../../sppg/sppg_manages.php.php" class="menu-item">Kelola Tim SPPG</a></li>
+                        <li><a href="menu_manage.php" class="menu-item active">Input Menu & Gizi</a></li>
+                        <li><a href="../../petugas/pengaduan/pengaduan_manage.php" class="menu-item">Pengaduan List</a></li>
+                    <?php endif; ?>
+                    <?php if($_SESSION['role'] == 'Petugas Gizi'): ?>
+                        <li><a href="../../sekolah/sekolah_manage.php" class="menu-item">Input Sekolah</a></li>
+                        <li><a href="menu_manage.php" class="menu-item">Input Menu & Gizi</a></li>
+                    <?php endif; ?>
+                    
+                    <li><a href="../../../auth/logout_process.php" class="menu-item logout" onclick="return confirm('Apakah Anda Yakin Ingin Keluar?')">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-    </table>
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div>
+                    <h1>Manajemen Menu Harian</h1>
+                    <p>Kelola menu makan bergizi dan data gizi setiap hari</p>
+                </div>
+                <div class="header-actions">
+                    <a href="menu_add.php" class="btn-primary">Tambah Menu Baru</a>
+                </div>
+            </header>
 
-    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; margin-top: 20px;">
-        <thead>
-            <tr>
-                <th>Nama Sekolah</th>
-                <th>Tanggal</th>
-                <th>Foto</th>
-                <th>Nama Menu</th>
-                <th>Detail Gizi</th>
-                <th>Status</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php while($row = mysqli_fetch_assoc($result)) : ?>
-            <tr>
-                <td><strong><?php echo $row['nama_sekolah']; ?></strong><br><small>(ID: <?php echo $row['id_sekolah']; ?>)</small></td>
-
-                <td><?php echo date('d-m-Y', strtotime($row['tanggal'])); ?></td>
-
-                <td align="center">
-                    <?php if (!empty($row['foto_url']) && file_exists("../../../assets/uploads/menu/" . $row['foto_url'])): ?>
-                        <img src="../../../assets/uploads/menu/<?php echo $row['foto_url']; ?>" 
-                            alt="Foto Menu" 
-                            style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;">
-                    <?php else: ?>
-                        <div style="width: 100px; height: 100px; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #999;">
-                            Tidak ada foto
+            <section class="table-section">
+                <div class="table-wrapper">
+                    <?php if(mysqli_num_rows($result) > 0) : ?>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Tanggal</th>
+                                    <th>Nama Menu</th>
+                                    <th>Sekolah</th>
+                                    <th>Foto</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php while($row = mysqli_fetch_assoc($result)) : ?>
+                                <tr>
+                                    <td><strong><?php echo date('d M Y', strtotime($row['tanggal'])); ?></strong></td>
+                                    <td><?php echo $row['nama_menu']; ?></td>
+                                    <td><?php echo $row['nama_sekolah']; ?></td>
+                                    <td>
+                                        <?php if(!empty($row['foto_url'])): ?>
+                                            <img src="../../../assets/uploads/menu/<?php echo $row['foto_url']; ?>" alt="Foto" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+                                        <?php else: ?>
+                                            <span class="text-muted">-</span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <a href="menu_edit.php?id=<?php echo $row['id_menu']; ?>" class="btn-small btn-edit">Edit</a>
+                                            <a href="menu_gizi.php?id=<?php echo $row['id_menu']; ?>" class="btn-small btn-info">Gizi</a>
+                                            <a href="../../../process/menu/menu_delete_process.php?id=<?php echo $row['id_menu']; ?>" class="btn-small btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus menu ini?')">Hapus</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php endwhile; ?>
+                            </tbody>
+                        </table>
+                    <?php else : ?>
+                        <div class="empty-state">
+                            <p>Belum ada data menu. <a href="menu_add.php">Tambah Menu Baru</a></p>
                         </div>
                     <?php endif; ?>
-                </td>
-
-                <td><?php echo $row['nama_menu']; ?></td>
-
-                <td>
-                    <ul style="margin: 0; padding-left: 15px; font-size: 0.9em;">
-                        <li>Energi: <?php echo $row['energi']; ?> kkal</li>
-                        <li>Kalori: <?php echo $row['kalori']; ?></li>
-                        <li>Protein: <?php echo $row['protein']; ?>g</li>
-                        <li>Karb: <?php echo $row['karbohidrat']; ?>g</li>
-                        <li>Lemak: <?php echo $row['lemak']; ?>g</li>
-                        <li>Serat: <?php echo $row['serat']; ?>g</li>
-                    </ul>
-                </td>
-
-                <td align="center">
-                    <?php 
-                        $status = $row['riwayat'] == 1 ? 'Selesai (Riwayat)' : 'Aktif';
-                        echo $status;
-                    ?>
-                </td>
-                <td>
-                    <?php if($row['riwayat'] == 0): ?>
-                        <a href="../../../process/menu/menu_status_process.php?id=<?php echo $row['id_menu']; ?>&set=1"
-                        onclick="return confirm('Pindahkan menu ini ke riwayat?')">Arsipkan</a> |
-                    <?php else : ?>
-                        <a href="../../../process/menu/menu_status_process.php?id=<?php echo $row['id_menu']; ?>&set=0"
-                        style="color: orange;">Pulihkan</a> |
-                    <?php endif; ?>
-
-                    <a href="menu_edit.php?id=<?php echo $row['id_menu']; ?>">Edit</a> | 
-                    <a href="../../../process/menu/menu_delete_process.php?id=<?php echo $row['id_menu']; ?>" 
-                        onclick="return confirm('Hapus menu ini?')">Hapus</a>
-                </td>
-            </tr>
-            <?php endwhile; ?>
-
-            <?php if(mysqli_num_rows($result) == 0) : ?>
-            <tr>
-                <td colspan="7" align="center">Belum ada data menu harian.</td>
-            </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
