@@ -42,7 +42,7 @@ while($row = mysqli_fetch_assoc($result_sppg)) {
         <li><a href="menu_history.php">Riwayat Menu</a></li>
         <li><a href="sppg_list.php" class="active">Tim SPPG</a></li>
         <li><a href="../index.php#pengaduan">Lapor Aduan</a></li>
-        <li><a href="pages/complaint_list.php">Daftar Aduan</a></li>
+        <li><a href="complaint_list.php">Daftar Aduan</a></li>
         <li><a href="login_pages.php" class="btn-login">Login Petugas</a></li>
     </ul>
 </nav>

@@ -153,18 +153,75 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-    .data-table thead th,
+    .table-section {
+        margin-top: 1.5rem;
+    }
+    
+    .data-table {
+        font-size: 0.9rem;
+    }
+    
+    .data-table thead {
+        display: none;
+    }
+    
+    .data-table tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid var(--gray-light);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
     .data-table tbody td {
+        display: block;
         padding: 0.8rem;
-        font-size: 0.85rem;
+        text-align: left;
+        position: relative;
+        padding-left: 50%;
+        border-bottom: 1px solid var(--gray-light);
+    }
+    
+    .data-table tbody td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding: 0.8rem;
+        font-weight: 600;
+        background: #f8fafc;
+        color: var(--primary-health);
+        font-size: 0.8rem;
+    }
+    
+    .data-table tbody td:last-child {
+        border-bottom: none;
     }
     
     .action-buttons {
         flex-direction: column;
+        gap: 8px;
     }
     
     .btn-small {
         width: 100%;
         text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .data-table tbody td {
+        padding: 0.6rem;
+        padding-left: 45%;
+        font-size: 0.85rem;
+    }
+    
+    .btn-small {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .empty-state {
+        padding: 2rem 1rem;
     }
 }

@@ -329,23 +329,150 @@ body {
         width: 100%;
         height: auto;
         position: relative;
+        padding: 1.5rem 0;
+    }
+    
+    .sidebar-header {
+        padding: 0 1.5rem 1.5rem;
+    }
+    
+    .sidebar-header .logo {
+        font-size: 1.3rem;
+    }
+    
+    .profile-section {
+        margin: 0 1rem 1rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    .profile-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .profile-name {
+        font-size: 0.85rem;
+    }
+    
+    .role-badge {
+        padding: 2px 8px;
+        font-size: 0.7rem;
+    }
+    
+    .menu ul {
+        padding: 0 0.5rem;
+    }
+    
+    .menu-item {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+        gap: 10px;
+    }
+    
+    .menu-item span {
+        font-size: 1rem;
     }
     
     .main-content {
         margin-left: 0;
-        padding: 1.5rem;
+        padding: 1.5rem 1rem;
     }
     
     .dashboard-header {
         flex-direction: column;
         gap: 1rem;
+        margin-bottom: 2rem;
     }
     
-    .header-time {
-        text-align: left;
+    .dashboard-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .header-actions {
+        width: 100%;
+    }
+    
+    .btn-primary {
+        width: 100%;
     }
     
     .stats-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .stat-card {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .stat-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-header {
+        padding: 0 1rem 1rem;
+    }
+    
+    .sidebar-header .logo {
+        font-size: 1rem;
+    }
+    
+    .profile-section {
+        margin: 0 0.5rem 0.8rem;
+        padding: 0.8rem 1rem;
+        gap: 10px;
+    }
+    
+    .profile-avatar {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .profile-name {
+        font-size: 0.8rem;
+    }
+    
+    .menu-item {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .menu-item span {
+        font-size: 0.9rem;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 1.3rem;
+    }
+    
+    .dashboard-header p {
+        font-size: 0.8rem;
+    }
+    
+    .stat-card {
+        padding: 1.5rem;
+    }
+    
+    .stat-content h3 {
+        font-size: 0.8rem;
+    }
+    
+    .stat-value {
+        font-size: 1.2rem;
+    }
+    
+    .stat-subtitle {
+        font-size: 0.75rem;
     }
 }

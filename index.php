@@ -160,6 +160,62 @@ $result_sekolah = mysqli_query($conn, "SELECT * FROM sekolah");
     <div class="footer-grid">
         <div class="footer-about">
             <h3>MBG Report</h3>
+            <p>Platform monitoring gizi digital untuk transparansi dan peningkatan kualitas SDM Indonesia. Memastikan setiap siswa mendapatkan hak gizi yang layak.</p>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Hubungi Kami</h3>
+            <ul class="contact-list">
+                <li>📍 Jl. Merdeka Barat No. 9, Jakarta Pusat</li>
+                <li>📞 (021) 500-MBG-RI</li>
+                <li>📧 layanan@mbg.go.id</li>
+            </ul>
+            <div class="contact-buttons">
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn-footer btn-wa">
+                    💬 Chat WhatsApp
+                </a>
+                <a href="mailto:layanan@mbg.go.id" class="btn-footer btn-email">
+                    ✉️ Kirim Email
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-map">
+            <h3>Lokasi Kantor</h3>
+            <div class="map-frame">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427009756!2d106.82496417499002!3d-6.175392393812061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764587d%3A0x7c14e38e4e975458!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1706500000000!5m2!1sid!2sid" 
+                    width="100%" 
+                    height="150" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <a href="https://maps.google.com" target="_blank" class="map-link">Buka di Google Maps &rarr;</a>
+        </div>
+
+        <div class="footer-agencies">
+            <h3>Didukung Oleh</h3>
+            <div class="agency-logos">
+                <p>• Badan Gizi Nasional</p>
+                <p>• Kementerian Kesehatan</p>
+                <p>• Kemendikbud Ristek</p>
+                <p>• Satuan Pelayanan (SPPG)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 MBG Report App | Dikembangkan untuk Sertifikasi Kompetensi RPL</p>
+    </div>
+</footer>
+<!-- 
+<footer>
+    <div class="footer-grid">
+        <div class="footer-about">
+            <h3>MBG Report</h3>
             <p>Platform monitoring gizi digital untuk transparansi dan peningkatan kualitas SDM Indonesia.</p>
         </div>
         <div class="footer-agencies">
@@ -174,7 +230,7 @@ $result_sekolah = mysqli_query($conn, "SELECT * FROM sekolah");
     <div class="footer-bottom">
         <p>&copy; 2026 MBG Report App | Sertifikasi Kompetensi RPL</p>
     </div>
-</footer>
+</footer> -->
 
 <script src="assets/js/complaint-form.js"></script>
 
