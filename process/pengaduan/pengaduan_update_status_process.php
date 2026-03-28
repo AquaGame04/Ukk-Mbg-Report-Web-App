@@ -1,7 +1,8 @@
 <?php
-include '../../config/database.php';
 include '../../includes/auth_check.php';
+include '../../config/database.php';
 Login_Check();
+Only_Allow(['Petugas Pengaduan']);
 
 if(isset($_POST['update'])){
     $id = mysqli_real_escape_string($conn, $_POST['id_pengaduan']);

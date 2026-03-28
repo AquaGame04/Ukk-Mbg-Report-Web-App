@@ -2,7 +2,7 @@
 include '../../../includes/auth_check.php';
 include '../../../config/database.php';
 Login_Check();
-Only_Allow(['Petugas Gizi', 'Admin']);
+Only_Allow(['Petugas Gizi']);
 
 $query_sekolah = "SELECT id_sekolah, nama_sekolah FROM sekolah ORDER BY nama_sekolah ASC";
 $daftar_sekolah = mysqli_query($conn, $query_sekolah);

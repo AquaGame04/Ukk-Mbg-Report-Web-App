@@ -47,6 +47,7 @@ $role = $_SESSION['role'];
                         <li><a href="../sekolah/sekolah_manage.php" class="menu-item">Kelola Sekolah</a></li>
                         <li><a href="../sppg/sppg_manage.php" class="menu-item">Kelola Tim SPPG</a></li>
                         <li><a href="../petugas/menu/menu_manage.php" class="menu-item">Input Menu & Gizi</a></li>
+                        <li><a href="../petugas/menu/menu_history.php" class="menu-item">Riwayat Menu</a></li>
                         <li><a href="../petugas/pengaduan/pengaduan_manage.php" class="menu-item">Pengaduan List</a></li>
                     <?php endif; ?>
                     

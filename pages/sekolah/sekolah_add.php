@@ -42,11 +42,11 @@ Only_Allow(['Admin']);
                 <input type="text" id="kontak" name="kontak" placeholder="Contoh: 081234567890 atau (021) 1234567" required>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="koordinat">Koordinat (Opsional)</label>
                 <input type="text" id="koordinat" name="koordinat" placeholder="Contoh: -6.1754,106.8272">
                 <small>Format: latitude,longitude untuk peta Google Maps</small>
-            </div>
+            </div> -->
 
             <div class="form-actions">
                 <button type="submit" name="submit" class="btn-primary">Simpan Sekolah</button>

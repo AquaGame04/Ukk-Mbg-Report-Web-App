@@ -35,7 +35,12 @@ $result_sekolah = mysqli_query($conn, "SELECT * FROM sekolah");
 
 <nav class="navbar">
     <a href="index.php" class="nav-logo">MBG REPORT</a>
-    <ul>
+    <button class="navbar-toggle" id="navbar-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <ul id="navbar-menu">
         <li><a href="#home">Beranda</a></li>
         <li><a href="#menu">Menu Hari Ini</a></li>
         <li><a href="pages/menu_history.php">Riwayat Menu</a></li>
@@ -233,6 +238,7 @@ $result_sekolah = mysqli_query($conn, "SELECT * FROM sekolah");
 </footer> -->
 
 <script src="assets/js/complaint-form.js"></script>
+<script src="assets/js/navbar.js"></script>
 
 </body>
 </html>

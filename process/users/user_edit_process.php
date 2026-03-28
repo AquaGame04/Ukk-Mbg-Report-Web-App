@@ -11,6 +11,17 @@ if(isset($_POST['update'])) {
 
     $val_sekolah = !empty($id_sekolah) ? "'$id_sekolah'" : "NULL";
 
+    // Check if new UID already exists (excluding current old_uid)
+    if ($uid !== $old_uid) {
+        $check_query = "SELECT uid FROM users WHERE uid = '$uid'";
+        $check_result = mysqli_query($conn, $check_query);
+        
+        if (mysqli_num_rows($check_result) > 0) {
+            echo "<script>alert('Username \"$uid\" sudah terdaftar! Gunakan username yang berbeda.'); window.history.back();</script>";
+            exit;
+        }
+    }
+
     if(!empty($password)){
         $query = "UPDATE users SET uid='$uid', nama='$nama', role='$role', password='$password', id_sekolah = $val_sekolah WHERE uid='$old_uid'";
     } else {

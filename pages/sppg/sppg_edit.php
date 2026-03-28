@@ -20,6 +20,13 @@ if (!$sppg) {
 // Get schools list
 $query_sekolah = "SELECT id_sekolah, nama_sekolah FROM sekolah ORDER BY nama_sekolah ASC";
 $daftar_sekolah = mysqli_query($conn, $query_sekolah);
+
+// Get users from database
+$query_users = "SELECT uid, nama, role FROM users WHERE role IN ('Petugas Gizi', 'Petugas Pengaduan') ORDER BY nama ASC";
+$daftar_users = mysqli_query($conn, $query_users);
+
+// Parse anggota_tim into array
+$anggota_selected = !empty($sppg['anggota_tim']) ? explode(',', $sppg['anggota_tim']) : [];
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +45,13 @@ $daftar_sekolah = mysqli_query($conn, $query_sekolah);
         </div>
 
         <form action="../../process/sppg/sppg_edit_process.php" method="POST" enctype="multipart/form-data" class="form-content">
-            <input type="hidden" name="id_sppg" value="<?php echo $sppg['id_sppg']; ?>">
+            <input type="hidden" name="id_sppg_old" value="<?php echo $sppg['id_sppg']; ?>">
+
+            <div class="form-group">
+                <label for="id_sppg">ID Tim SPPG</label>
+                <input type="text" id="id_sppg" name="id_sppg" value="<?php echo $sppg['id_sppg']; ?>" placeholder="ID unik untuk tim" maxlength="50" required>
+                <small>Gunakan format yang unik dan mudah diingat (maksimal 50 karakter)</small>
+            </div>
 
             <div class="form-group">
                 <label for="id_sekolah">Sekolah</label>
@@ -63,8 +76,39 @@ $daftar_sekolah = mysqli_query($conn, $query_sekolah);
             </div>
 
             <div class="form-group">
-                <label for="kontak">Nomor Kontak</label>
-                <input type="text" id="kontak" name="kontak" value="<?php echo $sppg['kontak_tim'] ?? ''; ?>" required>
+                <label for="ketua_tim">Ketua Tim</label>
+                <select id="ketua_tim" name="ketua_tim">
+                    <option value="">-- Pilih Ketua Tim --</option>
+                    <?php 
+                    mysqli_data_seek($daftar_users, 0);
+                    while($u = mysqli_fetch_assoc($daftar_users)) : 
+                    ?>
+                        <option value="<?php echo $u['uid']; ?>" <?php if($sppg['ketua_tim'] == $u['uid']) echo 'selected'; ?>>
+                            <?php echo $u['nama']; ?> (<?php echo $u['role']; ?>)
+                        </option>
+                    <?php endwhile; ?>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="kontak_tim">Nomor Kontak</label>
+                <input type="text" id="kontak_tim" name="kontak_tim" value="<?php echo $sppg['kontak_tim'] ?? ''; ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="anggota_tim">Anggota Tim (Pilih satu atau lebih)</label>
+                <select id="anggota_tim" name="anggota_tim[]" multiple required size="8">
+                    <option value="">-- Pilih Anggota Tim --</option>
+                    <?php 
+                    mysqli_data_seek($daftar_users, 0);
+                    while($u = mysqli_fetch_assoc($daftar_users)) : 
+                    ?>
+                        <option value="<?php echo $u['uid']; ?>" <?php if(in_array($u['uid'], $anggota_selected)) echo 'selected'; ?>>
+                            <?php echo $u['nama']; ?> (<?php echo $u['role']; ?>)
+                        </option>
+                    <?php endwhile; ?>
+                </select>
+                <small>Gunakan Ctrl+Click (Windows) atau Cmd+Click (Mac) untuk memilih lebih dari satu anggota</small>
             </div>
 
             <div class="form-group">

@@ -58,12 +58,14 @@ $total_pengaduan = $data_total_pengaduan['total'];
                         <li><a href="sekolah/sekolah_manage.php" class="menu-item">Kelola Sekolah</a></li>
                         <li><a href="sppg/sppg_manage.php" class="menu-item">Kelola Tim SPPG</a></li>
                         <li><a href="petugas/menu/menu_manage.php" class="menu-item">Input Menu & Gizi</a></li>
+                        <li><a href="petugas/menu/menu_history.php" class="menu-item">Riwayat Menu</a></li>
                         <li><a href="petugas/pengaduan/pengaduan_manage.php" class="menu-item">Pengaduan List</a></li>
                     <?php endif; ?>
 
                     <?php if($_SESSION['role'] == 'Petugas Gizi'): ?>
                         <li><a href="sekolah/sekolah_manage.php" class="menu-item">Input Sekolah</a></li>
                         <li><a href="petugas/menu/menu_manage.php" class="menu-item">Input Menu & Gizi</a></li>
+                        <li><a href="petugas/menu/menu_history.php" class="menu-item">Riwayat Menu</a></li>
                     <?php endif; ?>
 
                     <?php if($_SESSION['role'] == 'Petugas Pengaduan'): ?>
@@ -128,6 +130,18 @@ $total_pengaduan = $data_total_pengaduan['total'];
     </div>
 
     <script>
+        // Reset modals and body overflow on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            // Reset body overflow
+            document.body.style.overflow = 'auto';
+            
+            // Close any open modals
+            const allModals = document.querySelectorAll('.modal, [id*="Modal"]');
+            allModals.forEach(modal => {
+                modal.style.display = 'none';
+            });
+        });
+
         // Update waktu real-time
         function updateTime() {
             const now = new Date();

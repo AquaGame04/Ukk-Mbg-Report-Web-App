@@ -1,17 +1,22 @@
 <?php
+include '../../includes/auth_check.php';
 include '../../config/database.php';
-session_start();
+Login_Check();
+Only_Allow(['Petugas Gizi']);
 
 if (isset($_POST['submit'])) {
     $id_sekolah = $_POST['id_sekolah'];
     $nama_menu = mysqli_real_escape_string($conn, $_POST['nama_menu']);
-    $tanggal = $_POST['tanggal'];
+    
+    // Ambil tanggal dan amankan stringnya
+    $tanggal = mysqli_real_escape_string($conn, $_POST['tanggal']); 
+    
     $kalori = $_POST['kalori'];
     $protein = $_POST['protein'];
     $karbo = $_POST['karbohidrat'];
     $lemak = $_POST['lemak'];
-    $energi = $_POST['energi']; // New
-    $serat = $_POST['serat'];   // New
+    $energi = $_POST['energi']; 
+    $serat = $_POST['serat'];   
 
     // Proses Upload Foto
     $filename = $_FILES['foto_menu']['name'];
@@ -24,7 +29,9 @@ if (isset($_POST['submit'])) {
 
     if (move_uploaded_file($tmp_name, $upload_path)) {
         // 1. Insert ke menu_harian
-        $query_menu = "INSERT INTO menu_harian (nama_menu, foto_url, id_sekolah) VALUES ('$nama_menu', '$new_filename', '$id_sekolah')";
+        // PERBAIKAN DI SINI: Menambahkan kolom 'tanggal' dan variabel '$tanggal' ke dalam query
+        $query_menu = "INSERT INTO menu_harian (nama_menu, foto_url, id_sekolah, tanggal) 
+                       VALUES ('$nama_menu', '$new_filename', '$id_sekolah', '$tanggal')";
         
         if (mysqli_query($conn, $query_menu)) {
             $id_menu_baru = mysqli_insert_id($conn);
@@ -35,7 +42,13 @@ if (isset($_POST['submit'])) {
             
             if (mysqli_query($conn, $query_gizi)) {
                 echo "<script>alert('Menu dan Data Gizi Lengkap Berhasil Disimpan'); window.location='../../pages/petugas/menu/menu_manage.php';</script>";
+            } else {
+                // Tambahan error handling untuk query gizi jika gagal
+                echo "<script>alert('Menu tersimpan tapi Gizi gagal: " . mysqli_error($conn) . "'); window.history.back();</script>";
             }
+        } else {
+            // Tambahan error handling untuk query menu jika gagal
+            echo "<script>alert('Gagal menyimpan data menu: " . mysqli_error($conn) . "'); window.history.back();</script>";
         }
     } else {
         echo "<script>alert('Gagal Upload Foto'); window.history.back();</script>";

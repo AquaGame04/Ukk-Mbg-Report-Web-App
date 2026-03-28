@@ -124,29 +124,43 @@ $role = $_SESSION['role'];
                 <!-- Follow-up Form -->
                 <section class="followup-section">
                     <h2>Tindak Lanjut Petugas</h2>
-                    <form action="../../../process/pengaduan/pengaduan_update_status_process.php" method="POST" class="followup-form">
-                        <input type="hidden" name="id_pengaduan" value="<?php echo $data['id_pengaduan']; ?>">
+                    <?php if($_SESSION['role'] == 'Petugas Pengaduan'): ?>
+                        <form action="../../../process/pengaduan/pengaduan_update_status_process.php" method="POST" class="followup-form">
+                            <input type="hidden" name="id_pengaduan" value="<?php echo $data['id_pengaduan']; ?>">
 
-                        <div class="form-group">
-                            <label for="status">Status Pengaduan</label>
-                            <select id="status" name="status" required>
-                                <option value="Pending" <?php if($data['status'] == 'Pending') echo 'selected'; ?>>Pending (Menunggu Proses)</option>
-                                <option value="Diproses" <?php if($data['status'] == 'Diproses') echo 'selected'; ?>>Diproses (Sedang Ditangani)</option>
-                                <option value="Selesai" <?php if($data['status'] == 'Selesai') echo 'selected'; ?>>Selesai (Tindakan Selesai)</option>
-                            </select>
-                        </div>
+                            <div class="form-group">
+                                <label for="status">Status Pengaduan</label>
+                                <select id="status" name="status" required>
+                                    <option value="Pending" <?php if($data['status'] == 'Pending') echo 'selected'; ?>>Pending (Menunggu Proses)</option>
+                                    <option value="Diproses" <?php if($data['status'] == 'Diproses') echo 'selected'; ?>>Diproses (Sedang Ditangani)</option>
+                                    <option value="Selesai" <?php if($data['status'] == 'Selesai') echo 'selected'; ?>>Selesai (Tindakan Selesai)</option>
+                                </select>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="catatan_petugas">Catatan / Respon Petugas</label>
-                            <textarea id="catatan_petugas" name="catatan_petugas" rows="6" placeholder="Tuliskan tindakan yang sudah dilakukan atau jawaban untuk pelapor..."><?php echo htmlspecialchars($data['catatan_petugas'] ?? ''); ?></textarea>
-                            <small>Catatan ini akan membantu tracking progres pengaduan</small>
-                        </div>
+                            <div class="form-group">
+                                <label for="catatan_petugas">Catatan / Respon Petugas</label>
+                                <textarea id="catatan_petugas" name="catatan_petugas" rows="6" placeholder="Tuliskan tindakan yang sudah dilakukan atau jawaban untuk pelapor..."><?php echo htmlspecialchars($data['catatan_petugas'] ?? ''); ?></textarea>
+                                <small>Catatan ini akan membantu tracking progres pengaduan</small>
+                            </div>
 
-                        <div class="form-actions">
-                            <button type="submit" name="update" class="btn-primary">Simpan Perubahan</button>
-                            <a href="pengaduan_manage.php" class="btn-secondary">Batal</a>
+                            <div class="form-actions">
+                                <button type="submit" name="update" class="btn-primary">Simpan Perubahan</button>
+                                <a href="pengaduan_manage.php" class="btn-secondary">Batal</a>
+                            </div>
+                        </form>
+                    <?php else: ?>
+                        <div class="info-note">
+                            <p><strong>Catatan:</strong> Hanya <em>Petugas Pengaduan</em> yang dapat mengubah status dan menambahkan catatan tindak lanjut.</p>
+                            <div class="form-group">
+                                <label><b>Status Pengaduan:</b></label>
+                                <div class="readonly-field"><?php echo $data['status']; ?></div>
+                            </div>
+                            <div class="form-group">
+                                <label><b>Catatan Petugas:</b></label>
+                                <div class="readonly-field"><?php echo nl2br(htmlspecialchars($data['catatan_petugas'] ?? '-')); ?></div>
+                            </div>
                         </div>
-                    </form>
+                    <?php endif; ?>
                 </section>
             </div>
         </main>

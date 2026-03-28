@@ -46,6 +46,7 @@ $role = $_SESSION['role'];
                         <li><a href="../sekolah/sekolah_manage.php" class="menu-item">Kelola Sekolah</a></li>
                         <li><a href="sppg_manage.php" class="menu-item active">Kelola Tim SPPG</a></li>
                         <li><a href="../petugas/menu/menu_manage.php" class="menu-item">Input Menu & Gizi</a></li>
+                        <li><a href="../petugas/menu/menu_history.php" class="menu-item">Riwayat Menu</a></li>
                         <li><a href="../petugas/pengaduan/pengaduan_manage.php" class="menu-item">Pengaduan List</a></li>
                     <?php endif; ?>
                     
@@ -71,32 +72,74 @@ $role = $_SESSION['role'];
                         <table class="data-table">
                             <thead>
                                 <tr>
+                                    <th>Foto</th>
                                     <th>Nama Tim</th>
                                     <th>Jabatan</th>
-                                    <th>Sekolah</th>
+                                    <th>Ketua Tim</th>
+                                    <th>Anggota Tim</th>
                                     <th>Kontak</th>
-                                    <th>Foto</th>
+                                    <th>Sekolah</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php while($row = mysqli_fetch_assoc($result)) : ?>
                                 <tr>
+                                    <td>
+                                        <div class="foto-wrapper">
+                                            <?php if(!empty($row['foto_tim'])): ?>
+                                                <img src="../../assets/uploads/sppg/<?php echo $row['foto_tim']; ?>" alt="<?php echo $row['nama_tim']; ?>" class="team-thumbnail" onclick="openModal('../../assets/uploads/sppg/<?php echo $row['foto_tim']; ?>', '<?php echo addslashes($row['nama_tim']); ?>')">
+                                            <?php else: ?>
+                                                <div class="team-thumbnail-placeholder">
+                                                    <span>-</span>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </td>
                                     <td><strong><?php echo $row['nama_tim']; ?></strong></td>
                                     <td>
                                         <span class="role-badge-table">
                                             <?php echo $row['jabatan']; ?>
                                         </span>
                                     </td>
-                                    <td><?php echo $row['nama_sekolah']; ?></td>
-                                    <td><?php echo $row['kontak'] ?? '-'; ?></td>
                                     <td>
-                                        <?php if(!empty($row['foto_tim'])): ?>
-                                            <img src="../../assets/uploads/sppg/<?php echo $row['foto_tim']; ?>" alt="Foto" style="width: 40px; height: 40px; object-fit: cover; border-radius: 5px;">
-                                        <?php else: ?>
-                                            <span class="text-muted">-</span>
-                                        <?php endif; ?>
+                                        <?php 
+                                        if (!empty($row['ketua_tim'])) {
+                                            $query_ketua = "SELECT nama FROM users WHERE uid = '" . mysqli_real_escape_string($conn, $row['ketua_tim']) . "'";
+                                            $result_ketua = mysqli_query($conn, $query_ketua);
+                                            $ketua_data = mysqli_fetch_assoc($result_ketua);
+                                            if ($ketua_data) {
+                                                echo '<span class="ketua-badge">' . $ketua_data['nama'] . '<br><small>(' . $row['ketua_tim'] . ')</small></span>';
+                                            } else {
+                                                echo '<span class="text-muted">-</span>';
+                                            }
+                                        } else {
+                                            echo '<span class="text-muted">-</span>';
+                                        }
+                                        ?>
                                     </td>
+                                    <td>
+                                        <div class="anggota-list">
+                                            <?php 
+                                            if (!empty($row['anggota_tim'])) {
+                                                $uids = explode(',', $row['anggota_tim']);
+                                                foreach ($uids as $uid) {
+                                                    $uid_clean = trim($uid);
+                                                    $query_user = "SELECT nama, role FROM users WHERE uid = '$uid_clean'";
+                                                    $result_user = mysqli_query($conn, $query_user);
+                                                    $user_data = mysqli_fetch_assoc($result_user);
+                                                    if ($user_data) {
+                                                        echo '<span class="anggota-badge">' . $user_data['nama'] . '<br><small>(' . $user_data['role'] . ')</small></span>';
+                                                    }
+                                                }
+                                            } else {
+                                                echo '<span class="text-muted">-</span>';
+                                            }
+                                            ?>
+                                        </div>
+                                    </td>
+                                    <td><?php echo $row['kontak_tim'] ?? '-'; ?></td>
+                                    <td><?php echo $row['nama_sekolah']; ?></td>
                                     <td>
                                         <div class="action-buttons">
                                             <a href="sppg_edit.php?id=<?php echo $row['id_sppg']; ?>" class="btn-small btn-edit">Edit</a>
@@ -116,5 +159,14 @@ $role = $_SESSION['role'];
             </section>
         </main>
     </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <script src="../../assets/js/modal.js"></script>
 </body>
 </html>

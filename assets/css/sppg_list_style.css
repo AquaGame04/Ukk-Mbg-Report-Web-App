@@ -193,7 +193,15 @@
 
 .team-photo-section {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    gap: 1rem;
+}
+
+.team-photo-section .btn-detail {
+    width: 100%;
+    max-width: 200px;
 }
 
 .team-photo {
@@ -202,6 +210,12 @@
     border-radius: 15px;
     object-fit: cover;
     border: 3px solid var(--secondary-breakfast);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.team-photo:hover {
+    transform: scale(1.03);
 }
 
 .team-photo-placeholder {
@@ -267,6 +281,273 @@
     color: #64748b;
     line-height: 1.6;
     font-size: 0.9rem;
+}
+
+.team-summary {
+    margin-bottom: 0.8rem;
+    color: #34495e;
+    font-size: 0.95rem;
+}
+
+.team-summary p {
+    margin: 4px 0;
+}
+
+.btn-detail {
+    display: inline-block;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--primary-health), #27ae60);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+    margin-bottom: 0.9rem;
+}
+
+.btn-detail:hover {
+    transform: translateY(-1px);
+    background: linear-gradient(135deg, #2ecc71, #16a085);
+}
+
+.detail-panel {
+    background: #f4f7fc;
+    border-left: 4px solid #2d6d9a;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.06);
+    margin-top: 0.8rem;
+}
+
+.detail-panel h5 {
+    margin: 0 0 0.6rem;
+    color: #1e3a50;
+}
+
+.detail-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detail-panel li {
+    margin: 6px 0;
+    font-size: 0.90rem;
+    color: #3a4f63;
+}
+
+.detail-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.54);
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+}
+
+.photo-preview-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.35); /* lebih translucent, tidak terlalu pekat */
+    z-index: 10030;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+}
+
+.photo-preview-overlay.active {
+    display: flex;
+}
+
+.photo-preview-content {
+    width: min(90vw, 1000px);
+    max-width: 1000px;
+    height: min(90vh, 1000px);
+    max-height: 1000px;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    background: #0d0e15;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+.photo-preview-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: rgba(0, 0, 0, 0.01);
+}
+
+.photo-preview-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.photo-preview-close:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.overlay-card {
+    background: linear-gradient(140deg, #ffffff, #f0f8ff);
+    width: min(95%, 760px);
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(8, 37, 74, 0.3);
+    padding: 1.3rem;
+    position: relative;
+    border: 1px solid rgba(167, 196, 221, 0.8);
+    animation: fadeUp 0.28s cubic-bezier(.28,.71,.52,1.01);
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.overlay-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    color: #293241;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+    .overlay-card h3 {
+    margin-top: 0;
+    color: var(--primary-health);
+}
+
+.overlay-content {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 1.2rem;
+    align-items: flex-start;
+    margin-top: 0.9rem;
+}
+
+.overlay-content.three-col {
+    grid-template-columns: 160px 1fr;
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.overlay-meta {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 11px;
+    border: 1px solid rgba(164, 189, 214, 0.7);
+    box-shadow: 0 0 0 2px rgba(135, 188, 232, 0.18);
+    padding: 0.6rem;
+}
+
+.overlay-panels {
+    display: grid;
+    grid-template-columns: 1fr 6px 1fr;
+    gap: 0.8rem;
+    align-items: start;
+}
+
+.overlay-divider {
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(66, 100, 145, 0), rgba(66, 100, 145, 0.6), rgba(66, 100, 145, 0));
+    margin: 0;
+    border-radius: 2px;
+    height: auto;
+}
+.overlay-panel {
+    padding: 0.4rem 0.4rem;
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 10px;
+    border: 1px solid rgba(120, 155, 183, 0.3);
+    box-shadow: inset 0 2px 11px rgba(76, 107, 145, 0.08);
+}
+
+.overlay-panel p {
+    margin: 6px 0;
+    color: #30475e;
+    font-weight: 500;
+}
+
+.overlay-panel span {
+    color: #1f3e56;
+    font-weight: 700;
+}
+
+.ov-anggota-list {
+    margin: 4px 0 0;
+    padding-left: 18px;
+    list-style: disc;
+}
+
+.ov-anggota-list li {
+    margin-bottom: 5px;
+    color: #334155;
+    font-size: 0.92rem;
+}
+
+.overlay-photo {
+    width: 100%;
+    border-radius: 12px;
+    border: 3px solid var(--secondary-breakfast);
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: linear-gradient(135deg, #e9f4ff, #fafcff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(47, 86, 132, 0.12);
+}
+
+.overlay-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay-photo .no-photo {
+    color: #64748b;
+    font-size: 0.88rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.overlay-detail {
+    padding: 0.3rem 0.2rem;
+}
+
+.overlay-detail p {
+    margin: 6px 0;
+    font-size: 0.93rem;
+    color: #424f63;
+}
+
+.overlay-detail span {
+    color: #1f3e56;
+}
+
+@media (max-width: 720px) {
+    .overlay-content {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* INFO SECTION */

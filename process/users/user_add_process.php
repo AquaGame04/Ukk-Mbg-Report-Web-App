@@ -10,12 +10,20 @@ if(isset($_POST['submit'])) {
 
     $val_sekolah = !empty($id_sekolah) ? "'$id_sekolah'" : "NULL";
 
-    $query = "INSERT INTO users (uid, nama, role, password, id_sekolah) VALUES ('$uid', '$nama', '$role', '$password', $val_sekolah)";
-
-    if (mysqli_query($conn, $query)) {
-        echo "<script>alert('User Berhasil Ditambahkan'); window.location='../../pages/admin/user_manage.php';</script>";
+    // Check if UID already exists
+    $check_query = "SELECT uid FROM users WHERE uid = '$uid'";
+    $check_result = mysqli_query($conn, $check_query);
+    
+    if (mysqli_num_rows($check_result) > 0) {
+        echo "<script>alert('Username \"$uid\" sudah terdaftar! Gunakan username yang berbeda.'); window.history.back();</script>";
     } else {
-        echo "Error: " . mysqli_error($conn);
+        $query = "INSERT INTO users (uid, nama, role, password, id_sekolah) VALUES ('$uid', '$nama', '$role', '$password', $val_sekolah)";
+
+        if (mysqli_query($conn, $query)) {
+            echo "<script>alert('User Berhasil Ditambahkan'); window.location='../../pages/admin/user_manage.php';</script>";
+        } else {
+            echo "Error: " . mysqli_error($conn);
+        }
     }
     }
 ?>

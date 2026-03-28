@@ -2,7 +2,7 @@
 include '../../../includes/auth_check.php';
 include '../../../config/database.php';
 Login_Check();
-Only_Allow(['Petugas Gizi', 'Admin']);
+Only_Allow(['Petugas Gizi']);
 
 $id_menu = $_GET['id'];
 $query_menu = "SELECT m.*, g.*, s.id_sekolah, s.nama_sekolah FROM menu_harian m
@@ -37,8 +37,10 @@ $daftar_sekolah = mysqli_query($conn, $query_sekolah);
             <p>Perbarui informasi menu dan data gizi</p>
         </div>
 
-        <form action="../../../process/menu/menu_edit_process.php" method="POST" enctype="multipart/form-data" class="form-content">
+       <form action="../../../process/menu/menu_edit_process.php" method="POST" enctype="multipart/form-data" class="form-content">
             <input type="hidden" name="id_menu" value="<?php echo $menu['id_menu']; ?>">
+            
+            <input type="hidden" name="foto_lama" value="<?php echo $menu['foto_url']; ?>">
 
             <fieldset class="form-section">
                 <legend>Informasi Dasar Menu</legend>
@@ -67,8 +69,23 @@ $daftar_sekolah = mysqli_query($conn, $query_sekolah);
                     </div>
                 </div>
 
+                <!-- <div class="form-group">
+                    <label for="foto_menu">Foto Menu (Biarkan kosong jika tidak diubah)</label>
+                    <input type="file" id="foto_menu" name="foto_menu" accept="image/*">
+                    <small>Format: JPG, PNG, GIF (Max 5MB)</small>
+                </div> -->
                 <div class="form-group">
                     <label for="foto_menu">Foto Menu (Biarkan kosong jika tidak diubah)</label>
+                    
+                    <?php if(!empty($menu['foto_url'])): ?>
+                        <div style="margin-bottom: 10px;">
+                            <p style="font-size: 0.8rem; color: #666; margin-bottom: 5px;">Foto saat ini:</p>
+                            <img src="../../../assets/uploads/menu/<?php echo $menu['foto_url']; ?>" 
+                                alt="Foto Sekarang" 
+                                style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px; border: 2px solid #ddd;">
+                        </div>
+                    <?php endif; ?>
+
                     <input type="file" id="foto_menu" name="foto_menu" accept="image/*">
                     <small>Format: JPG, PNG, GIF (Max 5MB)</small>
                 </div>

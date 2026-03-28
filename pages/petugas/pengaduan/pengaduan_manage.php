@@ -47,6 +47,7 @@ $role = $_SESSION['role'];
                         <li><a href="../../sekolah/sekolah_manage.php" class="menu-item">Kelola Sekolah</a></li>
                         <li><a href="../../sppg/sppg_manage.php" class="menu-item">Kelola Tim SPPG</a></li>
                         <li><a href="../menu/menu_manage.php" class="menu-item">Input Menu & Gizi</a></li>
+                        <li><a href="../menu/menu_history.php" class="menu-item">Riwayat Menu</a></li>
                         <li><a href="pengaduan_manage.php" class="menu-item active">Pengaduan List</a></li>
                     <?php else: ?>
                         <li><a href="pengaduan_manage.php" class="menu-item active">Kelola Pengaduan</a></li>
@@ -108,7 +109,9 @@ $role = $_SESSION['role'];
                                     <td>
                                         <div class="action-buttons">
                                             <a href="pengaduan_detail.php?id=<?php echo $row['id_pengaduan']; ?>" class="btn-small btn-info">Detail</a>
-                                            <a href="../../../process/pengaduan/pengaduan_delete_process.php?id=<?php echo $row['id_pengaduan']; ?>" class="btn-small btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus pengaduan ini?')">Hapus</a>
+                                            <?php if($_SESSION['role'] == 'Petugas Pengaduan'): ?>
+                                                <a href="../../../process/pengaduan/pengaduan_delete_process.php?id=<?php echo $row['id_pengaduan']; ?>" class="btn-small btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus pengaduan ini?')">Hapus</a>
+                                            <?php endif; ?>
                                         </div>
                                     </td>
                                 </tr>

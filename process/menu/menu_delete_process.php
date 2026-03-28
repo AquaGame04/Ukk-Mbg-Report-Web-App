@@ -2,6 +2,7 @@
 include '../../config/database.php';
 include '../../includes/auth_check.php';
 Login_Check();
+Only_Allow(['Petugas Gizi']);
 
 if (isset($_GET['id'])) {
     $id = mysqli_real_escape_string($conn, $_GET['id']);

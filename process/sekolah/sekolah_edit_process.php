@@ -9,6 +9,17 @@ if (isset($_POST['update'])) {
     $kontak = $_POST['kontak'];
     $koordinat = $_POST['koordinat'];
 
+    // Check if new ID already exists (excluding current old_id)
+    if ($id !== $old_id) {
+        $check_query = "SELECT id_sekolah FROM sekolah WHERE id_sekolah = '$id'";
+        $check_result = mysqli_query($conn, $check_query);
+        
+        if (mysqli_num_rows($check_result) > 0) {
+            echo "<script>alert('ID Sekolah \"$id\" sudah ada! Gunakan ID yang berbeda.'); window.history.back();</script>";
+            exit;
+        }
+    }
+
     $query = "UPDATE sekolah SET 
                 id_sekolah='$id', 
                 nama_sekolah='$nama', 
