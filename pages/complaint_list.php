@@ -60,7 +60,7 @@ $result_sekolah = mysqli_query($conn, $query_sekolah);
     </ul>
 </nav>
 
-<header class="page-header">
+<header id="home" class="hero">
     <h1>Daftar Aduan Publik</h1>
     <p>Pantau status pengaduan yang telah diproses dan ditindaklanjuti</p>
 </header>

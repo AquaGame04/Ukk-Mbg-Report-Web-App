@@ -108,7 +108,7 @@ body {
 
 /* HERO */
 .hero {
-    background: linear-gradient(135deg, rgba(39, 174, 96, 0.85), rgba(33, 145, 80, 0.85)), url('../uploads/BackgroundLanding.png') center/cover no-repeat;
+    background: linear-gradient(135deg, rgba(39, 174, 96, 0.85), rgba(33, 145, 80, 0.85)), url('../uploads/gambar-makanan-paling-enak-sate.png') center/cover no-repeat;
     color: white;
     padding: 5rem 1rem;
     text-align: center;

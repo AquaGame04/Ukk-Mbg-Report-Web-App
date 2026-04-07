@@ -52,7 +52,7 @@ while($row = mysqli_fetch_assoc($result_menu)) {
     </ul>
 </nav>
 
-<header class="page-header">
+<header id="home" class="hero">
     <h1>Riwayat Menu Pilihan</h1>
     <p>Lihat semua menu yang telah disajikan di berbagai sekolah hingga hari ini</p>
 </header>

@@ -55,7 +55,7 @@ while($u = mysqli_fetch_assoc($result_users)) {
     </ul>
 </nav>
 
-<header class="page-header">
+<header id="home" class="hero">
     <h1>Tim Satuan Pelayanan SPPG</h1>
     <p>Berkenalan dengan tim profesional yang menjamin kualitas makan bergizi di sekolah Anda</p>
 </header>

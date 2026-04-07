@@ -1,0 +1,165 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Petugas Gizi Flowchart" id="petugas-gizi-diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Start -->
+        <mxCell id="gizi-start" value="Mulai" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#4CAF50;fontColor=#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="60" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Login -->
+        <mxCell id="gizi-login" value="Login Petugas Gizi" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#2196F3;fontColor=#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="300" y="120" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Dashboard -->
+        <mxCell id="gizi-dashboard" value="Dashboard Petugas Gizi" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#2196F3;fontColor:#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="300" y="230" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Main Menu -->
+        <mxCell id="gizi-choice" value="Pilih Aksi" style="rhombus;whiteSpace=wrap;html=1;fillColor:#FF9800;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="340" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Menu Options -->
+        <mxCell id="gizi-m1" value="Input Sekolah" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#9C27B0;fontColor=#fff;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="100" y="480" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="gizi-m2" value="Input Menu" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#9C27B0;fontColor:#fff;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="230" y="480" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="gizi-m3" value="Input Gizi" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#9C27B0;fontColor:#fff;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="360" y="480" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="gizi-m4" value="Lihat Riwayat" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#9C27B0;fontColor:#fff;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="490" y="480" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Actions -->
+        <mxCell id="gizi-a1" value="Isi Form Sekolah" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#00BCD4;fontColor:#fff;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="590" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="gizi-a2" value="Isi Form Menu" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#00BCD4;fontColor:#fff;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="590" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="gizi-a3" value="Upload Foto" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#00BCD4;fontColor:#fff;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="680" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="gizi-a4" value="Input Nutrisi Data" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#00BCD4;fontColor=#fff;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="590" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Data Saved -->
+        <mxCell id="gizi-saved" value="Data Tersimpan" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#4CAF50;fontColor:#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="310" y="770" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Continue Decision -->
+        <mxCell id="gizi-continue" value="Lanjut?" style="rhombus;whiteSpace=wrap;html=1;fillColor:#F44336;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="880" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Logout -->
+        <mxCell id="gizi-logout" value="Logout" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#FF5722;fontColor=#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="550" y="890" width="100" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- End -->
+        <mxCell id="gizi-end" value="Selesai" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor:#F44336;fontColor=#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="1000" width="60" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Edges -->
+        <mxCell id="edge1" edge="1" parent="1" source="gizi-start" target="gizi-login" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge2" edge="1" parent="1" source="gizi-login" target="gizi-dashboard" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge3" edge="1" parent="1" source="gizi-dashboard" target="gizi-choice" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge4" edge="1" parent="1" source="gizi-choice" target="gizi-m1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge5" edge="1" parent="1" source="gizi-choice" target="gizi-m2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge6" edge="1" parent="1" source="gizi-choice" target="gizi-m3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge7" edge="1" parent="1" source="gizi-choice" target="gizi-m4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge8" edge="1" parent="1" source="gizi-m1" target="gizi-a1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge9" edge="1" parent="1" source="gizi-m2" target="gizi-a2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge10" edge="1" parent="1" source="gizi-a2" target="gizi-a3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge11" edge="1" parent="1" source="gizi-m3" target="gizi-a4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge12" edge="1" parent="1" source="gizi-a1" target="gizi-saved" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge13" edge="1" parent="1" source="gizi-a3" target="gizi-saved" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="edge14" edge="1" parent="1" source="gizi-a4" target="gizi-saved" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge15" edge="1" parent="1" source="gizi-m4" target="gizi-saved" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge16" edge="1" parent="1" source="gizi-saved" target="gizi-continue" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge17" edge="1" parent="1" source="gizi-continue" target="gizi-choice" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="380" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="edge18" edge="1" parent="1" source="gizi-continue" target="gizi-logout" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge19" edge="1" parent="1" source="gizi-logout" target="gizi-end" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
