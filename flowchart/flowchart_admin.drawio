@@ -1,0 +1,183 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Admin Flowchart" id="admin-flow-diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Start -->
+        <mxCell id="admin-start" value="Mulai" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#4CAF50;fontColor=#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="60" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Login -->
+        <mxCell id="admin-login" value="Login Admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2196F3;fontColor=#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="310" y="120" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Dashboard -->
+        <mxCell id="admin-dashboard" value="Dashboard Admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#2196F3;fontColor=#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="310" y="230" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Main Menu Choice -->
+        <mxCell id="admin-choice" value="Pilih Menu" style="rhombus;whiteSpace=wrap;html=1;fillColor:#FF9800;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="335" y="340" width="90" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Menu Options -->
+        <mxCell id="admin-m1" value="Kelola User" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#9C27B0;fontColor=#fff;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="50" y="480" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="admin-m2" value="Kelola Sekolah" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#9C27B0;fontColor=#fff;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="170" y="480" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="admin-m3" value="Kelola SPPG" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#9C27B0;fontColor=#fff;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="290" y="480" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="admin-m4" value="Input Menu Gizi" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#9C27B0;fontColor=#fff;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="410" y="480" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="admin-m5" value="Kelola Pengaduan" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#9C27B0;fontColor:#fff;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="530" y="480" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Actions -->
+        <mxCell id="admin-a1" value="Tambah/Edit/Hapus" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#00BCD4;fontColor:#fff;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="590" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="admin-a2" value="Tambah/Edit/Hapus" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#00BCD4;fontColor:#fff;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="590" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="admin-a3" value="Tambah/Edit/Hapus" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#00BCD4;fontColor:#fff;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="590" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="admin-a4" value="Tambah/Edit/Hapus" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#00BCD4;fontColor:#fff;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="590" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="admin-a5" value="Update Status" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#00BCD4;fontColor:#fff;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="590" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Data Saved -->
+        <mxCell id="admin-saved" value="Data Tersimpan" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#4CAF50;fontColor:#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="310" y="700" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Continue Decision -->
+        <mxCell id="admin-continue" value="Lanjut?" style="rhombus;whiteSpace=wrap;html=1;fillColor:#F44336;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="335" y="810" width="90" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Logout -->
+        <mxCell id="admin-logout" value="Logout" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#FF5722;fontColor=#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="550" y="820" width="100" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- End -->
+        <mxCell id="admin-end" value="Selesai" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor:#F44336;fontColor=#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="940" width="60" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Edges -->
+        <mxCell id="edge1" edge="1" parent="1" source="admin-start" target="admin-login" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge2" edge="1" parent="1" source="admin-login" target="admin-dashboard" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge3" edge="1" parent="1" source="admin-dashboard" target="admin-choice" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge4" edge="1" parent="1" source="admin-choice" target="admin-m1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge5" edge="1" parent="1" source="admin-choice" target="admin-m2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge6" edge="1" parent="1" source="admin-choice" target="admin-m3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge7" edge="1" parent="1" source="admin-choice" target="admin-m4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge8" edge="1" parent="1" source="admin-choice" target="admin-m5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge9" edge="1" parent="1" source="admin-m1" target="admin-a1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge10" edge="1" parent="1" source="admin-m2" target="admin-a2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge11" edge="1" parent="1" source="admin-m3" target="admin-a3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge12" edge="1" parent="1" source="admin-m4" target="admin-a4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge13" edge="1" parent="1" source="admin-m5" target="admin-a5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge14" edge="1" parent="1" source="admin-a1" target="admin-saved" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge15" edge="1" parent="1" source="admin-a2" target="admin-saved" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge16" edge="1" parent="1" source="admin-a3" target="admin-saved" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge17" edge="1" parent="1" source="admin-a4" target="admin-saved" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge18" edge="1" parent="1" source="admin-a5" target="admin-saved" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge19" edge="1" parent="1" source="admin-saved" target="admin-continue" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge20" edge="1" parent="1" source="admin-continue" target="admin-choice" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="380" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="edge21" edge="1" parent="1" source="admin-continue" target="admin-logout" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge22" edge="1" parent="1" source="admin-logout" target="admin-end" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

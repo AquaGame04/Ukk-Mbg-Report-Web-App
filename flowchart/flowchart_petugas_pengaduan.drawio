@@ -1,0 +1,164 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Petugas Pengaduan Flowchart" id="petugas-pengaduan-diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Start -->
+        <mxCell id="aduan-start" value="Mulai" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor:#4CAF50;fontColor=#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="60" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Login -->
+        <mxCell id="aduan-login" value="Login Petugas Pengaduan" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#2196F3;fontColor:#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="120" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Dashboard -->
+        <mxCell id="aduan-dashboard" value="Dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#2196F3;fontColor:#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="310" y="230" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- View List -->
+        <mxCell id="aduan-list" value="Lihat Daftar Pengaduan" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#9C27B0;fontColor=#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="310" y="340" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Filter Choice -->
+        <mxCell id="aduan-filter" value="Filter Status?" style="rhombus;whiteSpace=wrap;html=1;fillColor:#FF9800;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="450" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Apply Filter -->
+        <mxCell id="aduan-apply" value="Filter Status" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#00BCD4;fontColor=#fff;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="465" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Select Complaint -->
+        <mxCell id="aduan-select" value="Pilih Pengaduan" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#9C27B0;fontColor=#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="310" y="600" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- View Detail -->
+        <mxCell id="aduan-detail" value="Lihat Detail" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#00BCD4;fontColor:#fff;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="720" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Update Status -->
+        <mxCell id="aduan-status" value="Update Status" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#00BCD4;fontColor=#fff;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="840" width="110" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Add Notes -->
+        <mxCell id="aduan-notes" value="Tambah Catatan" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#00BCD4;fontColor=#fff;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="840" width="110" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Save -->
+        <mxCell id="aduan-save" value="Simpan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00BCD4;fontColor:#fff;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="840" width="110" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Complete -->
+        <mxCell id="aduan-complete" value="Update Selesai" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#4CAF50;fontColor:#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="310" y="950" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Continue Decision -->
+        <mxCell id="aduan-continue" value="Lanjut?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F44336;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1070" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Logout -->
+        <mxCell id="aduan-logout" value="Logout" style="rounded=1;whiteSpace=wrap;html=1;fillColor:#FF5722;fontColor:#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="1080" width="100" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- End -->
+        <mxCell id="aduan-end" value="Selesai" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor:#F44336;fontColor=#fff;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="570" y="1200" width="60" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Edges -->
+        <mxCell id="edge1" edge="1" parent="1" source="aduan-start" target="aduan-login" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge2" edge="1" parent="1" source="aduan-login" target="aduan-dashboard" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge3" edge="1" parent="1" source="aduan-dashboard" target="aduan-list" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge4" edge="1" parent="1" source="aduan-list" target="aduan-filter" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge5" edge="1" parent="1" source="aduan-filter" target="aduan-apply" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="490" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="edge6" edge="1" parent="1" source="aduan-apply" target="aduan-select" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="edge7" edge="1" parent="1" source="aduan-filter" target="aduan-select" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="355" y="530" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="edge8" edge="1" parent="1" source="aduan-select" target="aduan-detail" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge9" edge="1" parent="1" source="aduan-detail" target="aduan-status" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge10" edge="1" parent="1" source="aduan-detail" target="aduan-notes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge11" edge="1" parent="1" source="aduan-status" target="aduan-save" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge12" edge="1" parent="1" source="aduan-notes" target="aduan-save" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge13" edge="1" parent="1" source="aduan-save" target="aduan-complete" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="950" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="edge14" edge="1" parent="1" source="aduan-complete" target="aduan-continue" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge15" edge="1" parent="1" source="aduan-continue" target="aduan-list" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="370" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="edge16" edge="1" parent="1" source="aduan-continue" target="aduan-logout" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge17" edge="1" parent="1" source="aduan-logout" target="aduan-end" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

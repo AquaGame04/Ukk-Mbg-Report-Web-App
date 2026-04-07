@@ -1,0 +1,169 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+:root {
+    --primary-health: #27ae60;
+    --secondary-breakfast: #f39c12;
+    --accent-report: #e74c3c;
+    --bg-clean: #f8fafc;
+    --text-main: #1e293b;
+    --white: #ffffff;
+    --gray-light: #e2e8f0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: linear-gradient(135deg, var(--primary-health), #219150);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-main);
+}
+
+.login-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    padding: 3rem 2rem;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    border-bottom: 3px solid var(--secondary-breakfast);
+    padding-bottom: 1.5rem;
+}
+
+.login-header h1 {
+    font-size: 1.8rem;
+    color: var(--primary-health);
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.login-header p {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.login-form { margin-bottom: 2rem; }
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-main);
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--gray-light);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.select-role {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--gray-light);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+.select-role:focus {
+    outline: none;
+    border-color: var(--primary-health);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+}
+
+.select-role option {
+    color: var(--text-main);
+    background-color: white;
+    padding: 8px;
+}
+
+.btn-login-submit {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--primary-health), #219150);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+.btn-login-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+}
+
+.btn-login-submit:active {
+    transform: translateY(0);
+}
+
+.login-footer {
+    text-align: center;
+    border-top: 1px solid var(--gray-light);
+    padding-top: 1.5rem;
+}
+
+.login-footer p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.login-footer a {
+    color: var(--primary-health);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.login-footer a:hover {
+    color: var(--secondary-breakfast);
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .login-header h1 {
+        font-size: 1.5rem;
+    }
+}
